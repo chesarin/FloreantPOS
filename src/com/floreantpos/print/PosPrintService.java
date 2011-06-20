@@ -214,7 +214,7 @@ public class PosPrintService {
 						printCentered(posPrinter, restaurant.getAddressLine3());
 					}
 					if (restaurant.getTelephone() != null) {
-						printCentered(posPrinter, restaurant.getTelephone());
+						printCentered(posPrinter, "Tel: "+ restaurant.getTelephone());
 					}
 
 					posPrinter.beginLine(PosPrinter.SIZE_0);
@@ -226,9 +226,13 @@ public class PosPrintService {
 					posPrinter.endLine();
 
 					posPrinter.beginLine(PosPrinter.SIZE_0);
-					posPrinter.printText(com.floreantpos.POSConstants.TBL_);
-					posPrinter.printText(String.valueOf(ticket.getTableNumber()));
-					posPrinter.endLine();
+                                        if (ticket.getTableNumber() == -1){
+                                            printCentered(posPrinter,"TAKE OUT");
+                                        }else{
+                                            posPrinter.printText(com.floreantpos.POSConstants.TBL_);
+                                            posPrinter.printText(String.valueOf(ticket.getTableNumber()));
+                                            posPrinter.endLine();
+                                        }
 
 					posPrinter.beginLine(PosPrinter.SIZE_0);
 					posPrinter.printText(com.floreantpos.POSConstants.GUEST + " #");
@@ -345,6 +349,10 @@ public class PosPrintService {
 
 					printCentered(posPrinter, "THANK YOU!!");
 					printCentered(posPrinter, "PLEASE COME AGAIN!!!");
+                                        //This needs to be supplied on the config window
+                                        //for now this is hard-coded
+                                        printCentered(posPrinter, "www.TropicalParadiseBallrooom.com");
+
 
 					posPrinter.printCutPartial();
 					//posPrinter.openDrawer();
