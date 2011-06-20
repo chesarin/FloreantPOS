@@ -61,7 +61,7 @@ public class JReportPrintService {
 			JasperReport ticketReport = (JasperReport) JRLoader.loadObject(ticketReportStream);
 
 			JasperPrint jasperPrint = JasperFillManager.fillReport(ticketReport, map, new JRTableModelDataSource(new TicketDataSource(ticket)));
-			JasperViewer.viewReport(jasperPrint, false);
+			//JasperViewer.viewReport(jasperPrint, false);
 			JasperPrintManager.printReport(jasperPrint, false);
 
 		} catch (JRException e) {
