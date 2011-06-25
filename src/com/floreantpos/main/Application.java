@@ -70,6 +70,7 @@ public class Application {
 		posWindow.setGlassPaneVisible(true);
 		posWindow.setTitle(getTitle());
 		posWindow.setIconImage(applicationIcon.getImage());
+                posWindow.setUndecorated(true);
 		posWindow.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				shutdownPOS();
