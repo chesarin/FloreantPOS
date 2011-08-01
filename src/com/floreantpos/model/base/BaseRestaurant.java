@@ -19,8 +19,10 @@ public abstract class BaseRestaurant  implements Comparable, Serializable {
 	public static String PROP_CURRENCY_NAME = "currencyName";
 	public static String PROP_CAPACITY = "capacity";
 	public static String PROP_ADDRESS_LINE3 = "addressLine3";
+        public static String PROP_WEBSITE = "website";
 	public static String PROP_CURRENCY_SYMBOL = "currencySymbol";
 	public static String PROP_TELEPHONE = "telephone";
+        public static String PROP_FAX = "fax";
 	public static String PROP_ADDRESS_LINE2 = "addressLine2";
 	public static String PROP_ADDRESS_LINE1 = "addressLine1";
 	public static String PROP_AUTO_DRAWER_PULL_ENABLE = "autoDrawerPullEnable";
@@ -58,7 +60,9 @@ public abstract class BaseRestaurant  implements Comparable, Serializable {
 	private java.lang.String addressLine1;
 	private java.lang.String addressLine2;
 	private java.lang.String addressLine3;
+        private java.lang.String website;
 	private java.lang.String telephone;
+        private java.lang.String fax;
 	private java.lang.Integer capacity;
 	private java.lang.Integer tables;
 	private java.lang.Boolean autoDrawerPullEnable;
@@ -106,7 +110,20 @@ public abstract class BaseRestaurant  implements Comparable, Serializable {
 		this.name = name;
 	}
 
+        /**
+	 * Return the value associated with the column: WEBSITE
+	 */
+	public java.lang.String getWebsite () {
+			return website;
+	}
 
+        /**
+	 * Set the value related to the column: WEBSITE
+	 * @param website the WEBSITE value
+	 */
+	public void setWebsite (java.lang.String website) {
+		this.website = website;
+	}
 
 	/**
 	 * Return the value associated with the column: ADDRESS_LINE1
@@ -175,6 +192,20 @@ public abstract class BaseRestaurant  implements Comparable, Serializable {
 	}
 
 
+        /**
+	 * Return the value associated with the column: FAX
+	 */
+	public java.lang.String getFax () {
+			return fax;
+	}
+
+	/**
+	 * Set the value related to the column: FAX
+	 * @param fax the FAX value
+	 */
+	public void setFax (java.lang.String fax) {
+		this.fax = fax;
+	}
 
 	/**
 	 * Return the value associated with the column: CAPACITY

@@ -100,6 +100,8 @@ public class POSConstants {
 	public static final String OPEN_TICKET_SUMMARY_REPORT = Messages.getString("PosMessage.97"); //$NON-NLS-1$
 	public static final String CONFIGURE = Messages.getString("PosMessage.98"); //$NON-NLS-1$
 	public static final String TICKET_DETAIL = Messages.getString("PosMessage.99"); //$NON-NLS-1$
+        public static final String WEBSITE = Messages.getString("PosMessage.991"); //$NON-NLS-1$
+        public static final String FAX = Messages.getString("PosMessage.992"); //$NON-NLS-1$
 	public static final String ERROR_MESSAGE = Messages.getString("PosMessage.100"); //$NON-NLS-1$
 	public static final String CONFIRM_SHUTDOWN = Messages.getString("PosMessage.101"); //$NON-NLS-1$
 	public static final String CHK_NO = Messages.getString("PosMessage.102"); //$NON-NLS-1$

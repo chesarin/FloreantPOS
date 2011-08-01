@@ -216,6 +216,9 @@ public class PosPrintService {
 					if (restaurant.getTelephone() != null) {
 						printCentered(posPrinter, "Tel: "+ restaurant.getTelephone());
 					}
+                                        if (restaurant.getFax() != null) {
+						printCentered(posPrinter, "Fax: "+ restaurant.getFax());
+					}
 
 					posPrinter.beginLine(PosPrinter.SIZE_0);
 					posPrinter.endLine();
@@ -348,10 +351,8 @@ public class PosPrintService {
 					posPrinter.endLine();
 
 					printCentered(posPrinter, "THANK YOU!!");
-					printCentered(posPrinter, "PLEASE COME AGAIN!!!");
-                                        //This needs to be supplied on the config window
-                                        //for now this is hard-coded
-                                        printCentered(posPrinter, "www.TropicalParadiseBallrooom.com");
+					printCentered(posPrinter, "PLEASE COME AGAIN!!!");                              
+                                        printCentered(posPrinter, restaurant.getWebsite());
 
 
 					posPrinter.printCutPartial();
