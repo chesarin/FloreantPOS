@@ -204,19 +204,24 @@ public class PosPrintService {
 					posPrinter.printText("\u001b|cA\u001b|2C" + restaurant.getName());
 					posPrinter.endLine();
 
-					if (restaurant.getAddressLine1() != null) {
+					//if (restaurant.getAddressLine1() != null) {
+                                        if (!restaurant.getAddressLine1().isEmpty()) {
 						printCentered(posPrinter, restaurant.getAddressLine1());
 					}
-					if (restaurant.getAddressLine2() != null) {
+					//if (restaurant.getAddressLine2() != null) {
+                                        if (!restaurant.getAddressLine2().isEmpty()) {
 						printCentered(posPrinter, restaurant.getAddressLine2());
 					}
-					if (restaurant.getAddressLine3() != null) {
+					//if (restaurant.getAddressLine3() != null) {
+                                        if (!restaurant.getAddressLine3().isEmpty()) {
 						printCentered(posPrinter, restaurant.getAddressLine3());
 					}
-					if (restaurant.getTelephone() != null) {
+					//if (restaurant.getTelephone() != null) {
+                                        if (!restaurant.getTelephone().isEmpty()) {
 						printCentered(posPrinter, "Tel: "+ restaurant.getTelephone());
 					}
-                                        if (restaurant.getFax() != null) {
+                                        //if (restaurant.getFax() != null) {
+                                        if (!restaurant.getFax().isEmpty()) {
 						printCentered(posPrinter, "Fax: "+ restaurant.getFax());
 					}
 
@@ -351,8 +356,11 @@ public class PosPrintService {
 					posPrinter.endLine();
 
 					printCentered(posPrinter, "THANK YOU!!");
-					printCentered(posPrinter, "PLEASE COME AGAIN!!!");                              
-                                        printCentered(posPrinter, restaurant.getWebsite());
+					printCentered(posPrinter, "PLEASE COME AGAIN!!!");
+                                        if (!restaurant.getWebsite().isEmpty()) {
+                                            printCentered(posPrinter, "VISIT US ONLINE!!!");
+                                            printCentered(posPrinter, restaurant.getWebsite());
+					}
 
 
 					posPrinter.printCutPartial();
