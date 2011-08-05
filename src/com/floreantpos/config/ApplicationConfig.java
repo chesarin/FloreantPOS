@@ -5,7 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.prefs.Preferences;
 
-import org.apache.derby.jdbc.ClientDriver;
+//import org.apache.derby.jdbc.ClientDriver;
+import com.mysql.jdbc.Driver;
 
 import com.floreantpos.main.Application;
 
@@ -55,7 +56,8 @@ public class ApplicationConfig {
 	}
 
 	public static String getConnectionURL() {
-		return "jdbc:derby://" + getDatabaseURL() + ":" + getDatabasePort() + "/" + getDatabaseName(); 
+		//return "jdbc:derby://" + getDatabaseURL() + ":" + getDatabasePort() + "/" + getDatabaseName();
+                return "jdbc:mysql://" + getDatabaseURL() + ":" + getDatabasePort() + "/" + getDatabaseName();
 	}
 	
 	public static void setDatabaseURL(String url) {
@@ -63,7 +65,8 @@ public class ApplicationConfig {
 	}
 	
 	public static String getDatabasePort() {
-		return pref.get(DATABASE_PORT, "1527");
+		//return pref.get(DATABASE_PORT, "1527");
+                return pref.get(DATABASE_PORT, "3306");
 	}
 	
 	public static void setDatabasePort(String port) {
@@ -95,12 +98,14 @@ public class ApplicationConfig {
 	}
 	
 	public static boolean checkDatabaseConnection(String url, String port, String databaseName, String user, String password) {
-		url = "jdbc:derby://" + url + ":" + port + "/" + databaseName; 
-		
-		new ClientDriver();
-		Connection connection = null; 
+		//url = "jdbc:derby://" + url + ":" + port + "/" + databaseName;
+                url = "jdbc:mysql://" + url + ":" + port + "/" + databaseName;
+             
+		//new ClientDriver();
+                Connection connection = null;
 		try {
-			connection = DriverManager.getConnection(url, user, password);
+			new Driver();
+                        connection = DriverManager.getConnection(url, user, password);
 			return true;
 		} catch (SQLException e) {
 			return false;
